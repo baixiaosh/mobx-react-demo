@@ -4,7 +4,7 @@ mobx-react-demo
 打包工具：[webpack3](https://doc.webpack-china.org/)
 
 
-###目录结构
+### 目录结构
 
 ```
 src             //项目目录
