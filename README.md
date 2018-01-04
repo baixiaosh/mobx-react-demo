@@ -14,7 +14,6 @@ src             //项目目录
 ├── routes      //页面
 ├── services    //api
 └── utils       //工具文件
-
 ```
 
 ### 命令
