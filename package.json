@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "description": "mobx, react",
   "scripts": {
-    "start:b": "webpack-dev-server --hot --config build/webpack.dev.js",
-    "build:b": "webpack --config build/webpack.prod.js",
     "start": "webpack-dev-server --hot",
     "build": "webpack"
   },
