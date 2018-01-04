@@ -27,3 +27,8 @@ npm run start
 
 - ~~集成less~~
 - ~~css modules~~
+- 添加mock
+- 集成一个UI库
+- 图标、图标等
+- 移动端demo
+- pc端demo
