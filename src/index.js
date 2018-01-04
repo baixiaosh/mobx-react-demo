@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import DevTools from 'mobx-react-devtools'
 
 import { useStrict } from 'mobx'
 import { Provider } from 'mobx-react'
@@ -18,7 +17,6 @@ ReactDOM.render(
   <Provider {...stores}>
     <Router >
     	<div>
-    		<DevTools/>
 	    	<Route exact path="/" component={App}/>
 	    	<Route path="/login" component={Login}/>
     	</div>

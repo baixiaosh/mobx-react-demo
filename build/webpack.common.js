@@ -1,40 +1,12 @@
+const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
 
 module.exports = {
-  devtool: 'eval',
-  devServer: {
-    contentBase: "./dist",
-    hot: true,
-    noInfo: true,
-  },
-  entry: {
-    index: './src/index',
-    vendor: ['react', 'react-dom', 'react-router-dom', 'mobx', 'mobx-react'],
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.[hash:8].js',
-    chunkFilename: '[id].[hash:8].js',
-  },
+  entry: ['./src/index'],
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin('index.[hash:8].css', { allChunks: true }),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: '[id].[hash:8].js'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest",
-      minChunks: Infinity,
-      filename: '[id].[hash:8].js'
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './index.html',
@@ -52,8 +24,8 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js?$/,
-      use: ['babel-loader'],
-      include: path.join(__dirname, 'src')
+      use: ['babel-loader?cacheDirectory=true'],
+      include: path.join(__dirname, './src')
     }, {
       test: /\.less$/,
       use: ExtractTextPlugin.extract({
@@ -64,7 +36,7 @@ module.exports = {
           'less-loader'
         ]
       }),
-      include: path.join(__dirname, 'src')
+      include: path.join(__dirname, './src')
     }]
-  }
+  },
 };

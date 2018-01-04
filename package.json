@@ -4,20 +4,32 @@
   "version": "1.0.0",
   "description": "mobx, react",
   "scripts": {
-    "start": "webpack-dev-server --hot --open",
-    "build": "webpack build",
-    "lint": "eslint src"
+    "start:b": "webpack-dev-server --hot --config build/webpack.dev.js",
+    "build:b": "webpack --config build/webpack.prod.js",
+    "start": "webpack-dev-server --hot",
+    "build": "webpack"
   },
   "author": "baixiaosh",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-1": "^6.5.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "postcss-loader": "^2.0.10",
+    "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^2.9.7",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "axios": "^0.17.1",

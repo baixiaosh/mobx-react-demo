@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
+import styles from './index.less';
 
 import Todo from './Todo'
 
@@ -28,7 +29,7 @@ class TodoList extends React.Component {
           ))}
         </ul>
         剩余: {this.props.store.unfinishedTodoCount}
-        <div><Link to="/login">登录</Link></div>
+        <div><Link to="/login" className={styles.test}>登录</Link></div>
       </div>
     )
   }
