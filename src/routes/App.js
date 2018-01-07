@@ -15,11 +15,10 @@ class App extends React.Component {
     const store = new TodoListModel()
     store.addTodo("Get Coffee")
     store.addTodo("Write simpler code")
-
-    let data = login({username: '123', password: 'demo'})
-    data.then((res)=>{
-    	store.addTodo(res.msg)
-    })
+		login({ username: '123', password: 'demo' }).then((res)=>{
+			console.log(res)
+			store.addTodo(res.msg)
+		})
     return <TodoList store={store} />
   }
 }
