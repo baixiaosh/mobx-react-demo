@@ -25,6 +25,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'index.[hash:8].js',
     chunkFilename: '[id].[hash:8].js',
+    publicPath: ''
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -54,7 +55,8 @@ module.exports = {
       'models': path.resolve(__dirname, './src/models'),
       'services': path.resolve(__dirname, './src/services'),
       'routes': path.resolve(__dirname, './src/routes'),
-      'utils': path.resolve(__dirname, './src/utils')
+      'utils': path.resolve(__dirname, './src/utils'),
+      'imgs': path.resolve(__dirname, './public/assets/imgs')
     }
   },
   module: {
@@ -73,6 +75,24 @@ module.exports = {
         ]
       }),
       include: path.join(__dirname, 'src')
+    }, {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader?sourceMap&importLoaders=1&localIdentName=[local]__[hash:base64:5]'
+        ]
+      }),
+    }, {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 2000,
+          name: '[name].[hash:8].[ext]',
+          outputPath: 'imgs/'
+        }
+      }]
     }]
   }
 };

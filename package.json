@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "mobx-react-demo",
+  "name": "HRSIP",
   "version": "1.0.0",
-  "description": "mobx, react",
+  "description": "HRSIP",
   "scripts": {
     "start": "webpack-dev-server --hot --open",
     "build": "webpack"
@@ -21,17 +21,20 @@
     "css-loader": "^0.28.7",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "postcss-loader": "^2.0.10",
     "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
@@ -41,8 +44,10 @@
     "mobx": "^3.4.1",
     "mobx-react": "^4.3.5",
     "mobx-react-devtools": "^4.2.15",
+    "normalize.css": "^7.0.0",
     "react": "^16.1.2",
     "react-dom": "^16.1.2",
+    "react-helmet": "^5.2.0",
     "react-router-dom": "^4.2.2"
   }
 }
