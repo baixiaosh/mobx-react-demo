@@ -10,6 +10,12 @@ module.exports = {
     contentBase: "./dist",
     hot: true,
     noInfo: true,
+    proxy: {
+      '/api': {
+        target: 'http://hs.axiao2.com',
+        changeOrigin: true
+      }
+    }
   },
   entry: {
     index: './src/index',
@@ -46,7 +52,9 @@ module.exports = {
     alias: {
       'components': path.resolve(__dirname, './src/components'),
       'models': path.resolve(__dirname, './src/models'),
-      'routes': path.resolve(__dirname, './src/routes')
+      'services': path.resolve(__dirname, './src/services'),
+      'routes': path.resolve(__dirname, './src/routes'),
+      'utils': path.resolve(__dirname, './src/utils')
     }
   },
   module: {

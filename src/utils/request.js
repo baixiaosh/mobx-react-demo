@@ -1,11 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
 import { CORS, baseURL, prefix } from './config'
-import resUtl from './resUtl'
 import jsonp from 'jsonp'
 import lodash from 'lodash'
 import pathToRegexp from 'path-to-regexp'
-import { message } from 'antd'
 
 axios.defaults.baseURL = baseURL
 
@@ -34,7 +32,7 @@ const fetch = (options) => {
     }
     url = domin + url
   } catch (e) {
-    message.error(e.message)
+    console.log(e)
   }
 
   if (fetchType === 'JSONP') {
