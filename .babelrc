@@ -1,8 +1,23 @@
 {
   "presets": [
     "es2015",
+<<<<<<< 10f81f39d49b5b6a4bed713f883797d0086c42c0
     "stage-1",
     "react",
   ],
   "plugins": ["transform-decorators-legacy", "transform-runtime"]
 }
+=======
+    "react",
+    "stage-1"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-runtime", ["import",
+    {
+      "libraryName": "antd",
+      "style": true
+    }]
+  ]
+}
+>>>>>>> 添加UI库,ant-design

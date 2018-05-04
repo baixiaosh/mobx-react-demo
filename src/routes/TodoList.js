@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
+<<<<<<< 10f81f39d49b5b6a4bed713f883797d0086c42c0
 import styles from './index.less';
+=======
+import styles from './index.less'
+
+import { Button } from 'antd'
+>>>>>>> 添加UI库,ant-design
 
 import Todo from './Todo'
 
@@ -20,7 +26,11 @@ class TodoList extends React.Component {
             value={this.newTodoTitle}
             onChange={this.handleInputChange}
           />
+<<<<<<< 10f81f39d49b5b6a4bed713f883797d0086c42c0
           <button type='submit'>添加</button>
+=======
+          <Button type='primary'>添加</Button>
+>>>>>>> 添加UI库,ant-design
         </form>
         <hr />
         <ul>

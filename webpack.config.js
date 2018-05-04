@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+<<<<<<< 10f81f39d49b5b6a4bed713f883797d0086c42c0
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -96,3 +97,22 @@ module.exports = {
     }]
   }
 };
+=======
+const merge = require('webpack-merge');
+
+const PRODUCTION = process.env.NODE_ENV === "production";
+const DEVELOPMENT = process.env.NODE_ENV === "development";
+const base = require("./config/").base;
+const config = PRODUCTION
+  ? require("./config/").build
+  : require("./config/").dev;
+
+
+module.exports = merge({
+  entry: base.entry,
+  output: base.output,
+  plugins: base.plugins,
+  resolve: base.resolve,
+  module: base.module,
+}, config);
+>>>>>>> 添加UI库,ant-design
