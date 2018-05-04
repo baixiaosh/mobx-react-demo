@@ -15,6 +15,9 @@ class App extends React.Component {
     store.setGlobal({
       list
     })
+    login({password:'123456', username:'admin'}).then(res=>{
+    	console.log(res)
+    })
     return <TodoList store = { store }
     />
   }
