@@ -7,11 +7,16 @@ export default class TodoListModel {
 
   @computed
   get unfinishedTodoCount() {
-    return this.todos.filter(todo=> !todo.finished).length
+    return this.todos.filter(todo => !todo.finished).length
   }
 
   @action
   addTodo(title) {
     this.todos.push(new TodoModel(title))
+  }
+
+  @action
+  removeTodo() {
+    this.todos = this.todos.filter(item => !item.finished)
   }
 }
