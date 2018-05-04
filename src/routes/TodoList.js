@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { observer } from 'mobx-react'
 import styles from './index.less'
 
@@ -14,6 +14,8 @@ class TodoList extends React.Component {
   @observable newTodoTitle = ''
 
   render() {
+    let { list } = this.props.store.global
+    let unfinishedTodoCount = computed(()=> list.filter(item => !item.finished).length )
     return (
       <div className={styles.body}>
         <Form layout="inline" onSubmit={this.handleSubmit}>
@@ -29,11 +31,11 @@ class TodoList extends React.Component {
         </Form>
         <hr />
         <ul className={styles.ul}>
-          {this.props.store.todos.map(todo => (
-            <Todo todo={todo} key={todo.id} />
+          {list.map((todo, index) => (
+            <Todo todo={todo} key={index} />
           ))}
         </ul>
-        未选中: {this.props.store.unfinishedTodoCount}
+        未选中: {unfinishedTodoCount.get()}
         <div>
           <Button type='danger' onClick={this.handleDelete}>删除选中</Button>
         </div>
@@ -49,14 +51,25 @@ class TodoList extends React.Component {
 
   @action
   handleSubmit = e => {
-    this.props.store.addTodo(this.newTodoTitle)
+    let list = this.props.store.global.list
+    list.push({
+      title: this.newTodoTitle,
+      finished: false
+    })
+    this.props.store.setGlobal({
+      list 
+    })
     this.newTodoTitle = ''
     e.preventDefault()
   }
 
   @action
   handleDelete = e => {
-    this.props.store.removeTodo()
+    let list = this.props.store.global.list
+    list = list.filter(i=>!i.finished)
+    this.props.store.setGlobal({
+      list 
+    })
     e.preventDefault()
   }
 }

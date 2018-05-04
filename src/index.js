@@ -8,14 +8,12 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 
 import App from 'routes/App'
 import Login from 'routes/Login'
-import app from 'models/AppModel'
-
-const stores = { app }
+import store from './store'
 
 useStrict(true)
 
 ReactDOM.render(
-  <Provider {...stores}>
+  <Provider store={store}>
     <LocaleProvider locale={zh_CN}>
 	    <Router >
 	    	<div>
